@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vile.today</title>
+
+<style>
+/* ===== RESET ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#000;
+  color:#e8e8e8;
+  font-family:"Courier New", monospace;
+  overflow-x:hidden;
+}
+
+/* ===== SCROLL LOCK ===== */
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ===== RAIN ===== */
+.rain {
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+.drop {
+  position:absolute;
+  width:1px;
+  background:linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.35), rgba(255,255,255,0));
+  animation:fall linear infinite;
+}
+@keyframes fall {
+  from { transform:translateY(-40px); }
+  to { transform:translateY(120vh); }
+}
+
+/* ===== LOADING ===== */
+#loader {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.98);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  text-align:center;
+}
+
+.loader-ring {
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:pulse 2.5s ease-in-out infinite;
+  box-shadow:0 0 35px rgba(255,255,255,.18);
+}
+.loader-ring img { width:130px; }
+
+.loader-text {
+  margin-top:28px;
+  font-size:1.3rem;
+  letter-spacing:3px;
+  animation:textPulse 2.5s infinite;
+}
+
+.loader-sub {
+  margin-top:10px;
+  font-size:.85rem;
+  color:#bbb;
+  opacity:.75;
+}
+
+.loader-legal {
+  margin-top:40px;
+  max-width:650px;
+  font-size:.72rem;
+  line-height:1.9;
+  color:#b5b5b5;
+}
+
+@keyframes pulse {
+  0% { transform:scale(1); opacity:.6; }
+  50% { transform:scale(1.06); opacity:1; }
+  100% { transform:scale(1); opacity:.6; }
+}
+@keyframes textPulse {
+  50% { opacity:1; }
+}
+
+/* ===== MAIN ===== */
+#content {
+  opacity:0;
+  transition:opacity 1.8s ease;
+  min-height:100vh;
+  padding:90px 20px 100px;
+  position:relative;
+  z-index:1;
+}
+
+.top-gif {
+  text-align:center;
+  margin-bottom:70px;
+}
+.top-gif img {
+  max-width:150px;
+  transform-origin:top center;
+  animation:swing 8s ease-in-out infinite;
+}
+@keyframes swing {
+  0% { transform:rotate(-1.5deg); }
+  50% { transform:rotate(1.5deg); }
+  100% { transform:rotate(-1.5deg); }
+}
+
+.center {
+  max-width:880px;
+  margin:0 auto;
+  text-align:center;
+}
+
+h1 {
+  font-size:2.6rem;
+  letter-spacing:8px;
+  margin-bottom:40px;
+}
+
+.bio {
+  max-width:760px;
+  margin:0 auto 65px;
+  font-size:1.05rem;
+  line-height:2.1;
+  color:#d2d2d2;
+}
+
+.links {
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+}
+
+.links a {
+  padding:16px 40px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  letter-spacing:1.3px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(10px);
+  transition:.4s ease;
+}
+.links a:hover {
+  transform:translateY(-6px);
+  border-color:#fff;
+  box-shadow:0 10px 40px rgba(255,255,255,.2);
+}
+
+.legal {
+  margin-top:120px;
+  border-top:1px solid rgba(255,255,255,.25);
+  padding-top:34px;
+  max-width:780px;
+  margin-left:auto;
+  margin-right:auto;
+  font-size:.78rem;
+  line-height:2.1;
+  color:#b0b0b0;
+  text-align:left;
+}
+</style>
+</head>
+
+<body class="no-scroll">
+
+<div class="rain"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-ring">
+    <img src="fbii.png" alt="loading">
+  </div>
+  <div class="loader-text">Loading...</div>
+  <div class="loader-sub">Initializing secure environment</div>
+  <div class="loader-legal">
+    © 2025 River. All rights reserved.<br>
+    Protected under United States law.<br>
+    Unauthorized duplication, scraping, or redistribution is prohibited.
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="content">
+  <div class="top-gif">
+    <img src="baby.png" alt="visual">
+  </div>
+
+  <div class="center">
+    <h1>vile.today</h1>
+
+    <div class="bio">
+      Due to account suspension and restrictions placed on my devices and IP address,
+      I am no longer active on Discord.<br><br>
+      Any individual claiming to be <strong>River</strong> is impersonating me.
+      For legitimate communication, please use the links below.
+    </div>
+
+    <div class="links">
+      <a href="https://web.telegram.org/k/#@isocracy">Telegram</a>
+      <a href="https://www.instagram.com/cried140/">Instagram</a>
+    </div>
+
+    <div class="legal">
+      <strong>Legal Notice</strong><br>
+      © 2025 River. All rights reserved.<br><br>
+      This website, including its design, structure, text, and scripts,
+      is protected under applicable United States and international laws.
+      Unauthorized reproduction, duplication, or misuse may result in
+      civil and criminal penalties.
+    </div>
+  </div>
+</div>
+
+<script>
+/* LOCK SCROLL ON LOAD */
+document.body.classList.add("no-scroll");
+
+/* REMOVE LOADER */
+setTimeout(() => {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("content").style.opacity = "1";
+  document.body.classList.remove("no-scroll");
+}, 3000);
+
+/* RAIN */
+const rain = document.querySelector(".rain");
+for (let i = 0; i < 450; i++) {
+  const d = document.createElement("div");
+  const depth = Math.random();
+  d.className = "drop";
+  d.style.left = Math.random() * 100 + "vw";
+  d.style.height = 12 + depth * 30 + "px";
+  d.style.opacity = .08 + depth * .4;
+  d.style.animationDuration = 1 + depth * 3 + "s";
+  rain.appendChild(d);
+}
+
+/* ANTI-SKID */
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("keydown", e => {
+  if (e.key === "F12" || (e.ctrlKey && e.shiftKey) || (e.ctrlKey && e.key.toLowerCase() === "u")) {
+    e.preventDefault();
+    document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:40vh;'>Skid Detected</h1>";
+  }
+});
+</script>
+
+</body>
+</html>
